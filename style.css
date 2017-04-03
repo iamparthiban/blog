@@ -210,7 +210,14 @@ margin:200px 0;
   margin-bottom: 10px;
   text-align: justify;
 }
-
+.success{
+  color: green;
+  font-size: 18px;
+}
+.error{
+  color: red;
+  font-size: 18px;
+}
 span.pagination{
   display: block;
   font-size: 20px;

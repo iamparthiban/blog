@@ -8,10 +8,13 @@ include 'inc/sidebar.php';
         <div class="block copyblock"> 
             <?php
             if($_SERVER['REQUEST_METHOD']=='POST'){
-				$name = $fm->validation($_POST['name']);
-                echo '<span style="color:red;">No Results Found</span>';
+                $name = $_POST['name'];
+				$name = $fm->validation($_POST['name']);                
                 if(empty($name)){
-                    echo '<span style="color:red;">No Results Found</span>';
+                    echo '<span class="error">Field must be not empty..!</span>';
+                }else{
+                    $query = "INSERT INTO tbl_category(name) VALUES ('$name')";
+                    $catinsert = $db->insert($query);
                 }
             }
             ?>
@@ -19,7 +22,7 @@ include 'inc/sidebar.php';
             <table class="form">					
                 <tr>
                     <td>
-                        <input type="text" placeholder="Enter Category Name..." class="medium" />
+                        <input type="text" name="name" placeholder="Enter Category Name..." class="medium" />
                     </td>
                 </tr>
                 <tr> 
